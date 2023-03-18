@@ -6,4 +6,4 @@ micros:
     engine: python3.9
     primary: true
     public_routes:
-      - "/transcrever"
+      - "/*"
