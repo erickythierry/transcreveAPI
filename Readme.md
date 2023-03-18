@@ -24,6 +24,34 @@ curl -X POST -F 'audio=@/path/to/audio.wav' http://localhost:5000/transcrever
 ```
 
 
+ou usando NodeJS Axios:
+```js
+var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+data.append('audio', fs.createReadStream('@/path/to/audio.wav'));
+
+var config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:5000/transcrever',
+    headers: { 
+        ...data.getHeaders()
+    },
+    data : data
+};
+
+axios(config)
+    .then(function (response) {
+        console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+```
+
+
 Isso enviará um arquivo de áudio `audio.wav` localizado em `/path/to/` para o endpoint `/transcrever` da API. Se o arquivo for um arquivo WAV válido, a API transcreverá o áudio em texto e retornará a transcrição como uma resposta HTTP 200 OK. Se o arquivo enviado não for um arquivo WAV válido, a API retornará um JSON com uma mensagem de erro indicando que apenas arquivos WAV são permitidos.
 
 ## Contribuindo
