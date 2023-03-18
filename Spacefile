@@ -1,0 +1,9 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: transcreveAPI
+    src: .
+    engine: python3.9
+    primary: true
+    public_routes:
+      - "/transcrever"
