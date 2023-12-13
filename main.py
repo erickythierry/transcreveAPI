@@ -37,4 +37,4 @@ def transcrever():
         return 'Erro ao se comunicar com o serviço de reconhecimento de fala', 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
