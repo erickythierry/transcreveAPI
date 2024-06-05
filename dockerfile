@@ -1,6 +1,7 @@
 FROM python:3.11
 WORKDIR /app
-COPY requirements.txt .
+RUN apt update && apt install git -y
+RUN git clone https://github.com/erickythierry/transcreveAPI .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 5000
