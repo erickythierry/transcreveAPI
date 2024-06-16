@@ -15,7 +15,7 @@ Antes de usar a API, certifique-se de ter instalado as dependências do projeto 
 
 A API possui um único endpoint em `/transcrever`, que pode ser usado para enviar arquivos de áudio para transcrição.
 
-Para enviar um arquivo de áudio para transcrição, faça uma solicitação HTTP POST para o endpoint `/transcrever` com o arquivo de áudio como dados do formulário multipart.
+Para enviar um arquivo de áudio para transcrição, faça uma solicitação HTTP POST para o endpoint `/transcrever` com o arquivo de áudio **no formato .wav** como dados do formulário multipart.
 
 Por exemplo, usando o comando `curl` no terminal:
 
