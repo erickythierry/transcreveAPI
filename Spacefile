@@ -1,4 +1,5 @@
 # Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+# funciona apenas com wav
 v: 0
 micros:
   - name: transcreveAPI

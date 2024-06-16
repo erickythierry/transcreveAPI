@@ -10,12 +10,13 @@ Antes de usar a API, certifique-se de ter instalado as dependências do projeto 
 
 ```pip install -r requirements.txt```
 
+**Também instale o FFMPEG!**
 
 ### Endpoint
 
 A API possui um único endpoint em `/transcrever`, que pode ser usado para enviar arquivos de áudio para transcrição.
 
-Para enviar um arquivo de áudio para transcrição, faça uma solicitação HTTP POST para o endpoint `/transcrever` com o arquivo de áudio **no formato .wav** como dados do formulário multipart.
+Para enviar um arquivo de áudio para transcrição, faça uma solicitação HTTP POST para o endpoint `/transcrever` com o arquivo de áudio como dados do formulário multipart.
 
 Por exemplo, usando o comando `curl` no terminal:
 
@@ -52,7 +53,7 @@ axios(config)
 ```
 
 
-Isso enviará um arquivo de áudio `audio.wav` localizado em `/path/to/` para o endpoint `/transcrever` da API. Se o arquivo for um arquivo WAV válido, a API transcreverá o áudio em texto e retornará a transcrição como uma resposta HTTP 200 OK. Se o arquivo enviado não for um arquivo WAV válido, a API retornará um JSON com uma mensagem de erro indicando que apenas arquivos WAV são permitidos.
+Isso enviará um arquivo de áudio `audio.wav` localizado em `/path/to/` para o endpoint `/transcrever` da API. Se o arquivo for um arquivo WAV válido, a API transcreverá o áudio em texto e retornará a transcrição como uma resposta HTTP 200 OK. Se o arquivo enviado não for um arquivo válido, a API retornará um JSON com uma mensagem de erro indicando que apenas arquivos WAV, OGG e MP3 são permitidos.
 
 ## Contribuindo
 
