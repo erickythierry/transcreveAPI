@@ -31,6 +31,6 @@ ENV PATH=/transcreve-api/venv/bin:$PATH
 
 EXPOSE 5000
 
-ENTRYPOINT ["dumb-init", "--"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app", "--workers", "4", "--log-level", "info"]
