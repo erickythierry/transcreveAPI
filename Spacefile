@@ -4,7 +4,7 @@ v: 0
 micros:
   - name: transcreveAPI
     src: .
-    engine: python3.9
+    engine: python3.11
     primary: true
     public_routes:
       - "/*"
