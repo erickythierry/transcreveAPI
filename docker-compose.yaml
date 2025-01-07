@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - TZ=America/Sao_Paulo
+      - PYTHONPATH=/transcreve-api/venv
+      - ALLOWED_IPS={colocarip}
+      
+
+ # Remova 127.0.0.1 se não quiser acesso local
+    volumes:
+      - ./uploads:/transcreve-api/uploads  
+      - ./logs:/transcreve-api/logs        
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  uploads:
+  logs:
