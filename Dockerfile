@@ -33,4 +33,7 @@ EXPOSE 5000
 
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app", "--workers", "4", "--log-level", "info"]
+ENV WORKERS=4
+ENV LOGLEVEL="info"
+
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app", "--workers", ${WORKERS}, "--log-level", LOGLEVEL]
