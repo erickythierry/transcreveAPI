@@ -36,4 +36,4 @@ ENTRYPOINT ["dumb-init", "--"]
 ENV WORKERS=4
 ENV LOGLEVEL="info"
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app", "--workers", ${WORKERS}, "--log-level", LOGLEVEL]
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 main:app --workers ${WORKERS} --log-level ${LOGLEVEL}"]
