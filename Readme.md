@@ -2,9 +2,9 @@
 
 Uma API simples criada com Python Flask e a biblioteca SpeechRecognition para transcrever arquivos de áudio em texto.
 
-## Uso
+## Deploy
 
-### Requisitos
+### Requisitos para executar localmente
 
 Antes de usar a API, certifique-se de ter instalado as dependências do projeto usando o seguinte comando:
 
@@ -12,7 +12,37 @@ Antes de usar a API, certifique-se de ter instalado as dependências do projeto 
 
 **Também instale o FFMPEG!**
 
-### Endpoint
+abra o `main.py` e descomente esse trecho abaixo no fim do arquivo:
+```python
+#if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=5000)
+```
+
+execute no terminal (ou cmd):
+```bash
+python main.py #para windows
+```
+ou
+```bash
+python3 main.py #para linux
+```
+
+### Requisitos para executar via Docker
+execute o comando abaixo na raiz do projeto para fazer build da imagem Docker:
+```bash
+docker build -t transcreve-api:latest .
+```
+
+Depois, execute esse comando pra iniciar o container:
+```bash
+docker run -p 5000:5000 transcreve-api:latest
+```
+Assim o container irá iniciar anexado ao console atual, e ouvirá na porta `5000`
+
+para encerrar o container, use `ctrl+c` no console atual
+
+
+## Endpoint
 
 A API possui um único endpoint em `/transcrever`, que pode ser usado para enviar arquivos de áudio para transcrição.
 

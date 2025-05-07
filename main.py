@@ -114,3 +114,7 @@ def transcrever():
         logging.error(
             f"{request_time} - Erro inesperado: {e} - IP: {request_ip}")
         return 'Erro interno no servidor', 500
+
+
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=5000)
