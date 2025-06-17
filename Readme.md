@@ -2,6 +2,8 @@
 
 Uma API simples criada com Python Flask e a biblioteca SpeechRecognition para transcrever arquivos de áudio em texto.
 
+**ATENÇÃO: Esse projeto é apenas um "wrapper" que utiliza a lib SpeechRecognition e se comunica com a api pública do Google pra fazer as transcrições gratuitamente.**
+
 ## Deploy
 
 ### Requisitos para executar localmente
