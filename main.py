@@ -74,18 +74,18 @@ def transcrever():
             f"{request_time} - Arquivo de áudio inválido - IP: {request_ip}")
         return 'Arquivo de áudio inválido', 400
 
+
     content_type = audio_file.content_type
-    if content_type not in ['audio/wav', 'audio/wave', 'audio/x-wav', 'audio/ogg', 'audio/mp3']:
+    if content_type not in ['audio/wav', 'audio/wave', 'audio/x-wav', 'audio/ogg', 'audio/mp3', 'audio/mpeg']:
         logging.error(
             f"{request_time} - Tipo de arquivo não suportado: {content_type} - IP: {request_ip}")
         return {'erro': 'Apenas arquivos WAV, OGG e MP3 são permitidos'}, 400
 
     try:
-        if content_type in ['audio/ogg', 'audio/mp3']:
-            audio = AudioSegment.from_file(io.BytesIO(
-                audio_file.read()), format=content_type.split('/')[1])
-            audio = audio.set_frame_rate(16000).set_channels(
-                1)  # Ajuste a taxa de amostragem e canais
+        if content_type in ['audio/ogg', 'audio/mp3', 'audio/mpeg']:
+            fmt = 'mp3' if content_type in ['audio/mp3', 'audio/mpeg'] else 'ogg'
+            audio = AudioSegment.from_file(io.BytesIO(audio_file.read()), format=fmt)
+            audio = audio.set_frame_rate(16000).set_channels(1)
             wav_io = io.BytesIO()
             audio.export(wav_io, format='wav')
             wav_io.seek(0)
