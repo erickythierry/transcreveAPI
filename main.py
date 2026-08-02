@@ -55,6 +55,11 @@ def home():
     return '<center><h1>[POST] /transcrever with "audio" form file (wav, ogg, mp3)</h1></center>'
 
 
+@app.route('/health', methods=['GET'])
+def health():
+    return 'ok', 200
+
+
 @app.route('/transcrever', methods=['POST'])
 @check_ip
 def transcrever():

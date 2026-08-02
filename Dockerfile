@@ -1,4 +1,4 @@
-FROM python:3.11-alpine AS builder
+FROM python:3.12-alpine AS builder
 
 WORKDIR /transcreve-api
 
@@ -8,7 +8,7 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt --target=/transcreve-api/venv
 
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 
 WORKDIR /transcreve-api
 
